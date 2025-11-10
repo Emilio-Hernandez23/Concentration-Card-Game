@@ -9,10 +9,55 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
+    return MaterialApp(
+      title: 'Cards of Destruction',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(useMaterial3: true, colorSchemeSeed: Colors.blue),
+      home: MenuScreen(),
+      routes: {
+        GamesScreen.routeName: (game) => const GamesScreen(),
+      },
+    );
+  }
+}
+
+// Menu Screen
+class MenuScreen extends StatelessWidget {
+  const MenuScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Main Menu')),
+      body: ListView(
+        children: [
+          ListTile(
+            leading: const Icon(Icons.info_outline),
+            title: const Text('Start Game'),
+            onTap: () {
+              Navigator.of(context).pushNamed(GamesScreen.routeName);
+            },
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+// Game Screen
+class GamesScreen extends StatelessWidget {
+  static const routeName = '/details';
+
+  const GamesScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Details')),
+      body: Center(
+        child: FilledButton(
+          onPressed: () => Navigator.of(context).pop(), // go back to menu
+          child: const Text('Back'),
         ),
       ),
     );
