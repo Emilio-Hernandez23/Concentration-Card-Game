@@ -44,33 +44,58 @@ class MenuScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Main Menu'),
         centerTitle: true,
-        ),
-      body: ListView(
+      ),
+      body: Stack(
         children: [
-          ListTile(
-            leading: const Icon(Icons.info_outline),
-            title: const Text('Start Game'),
-            onTap: () {
-              Navigator.of(context).pushNamed(GamesScreen.routeName);
-            },
+          // Background image
+          Positioned.fill(
+            // child: Image.asset(
+            //   'assets/images/Backgrounds/Home_Screen_Background.png',
+            child: Image.asset(
+              'assets/images/Backgrounds/Home_Screen_Background2.png',
+              fit: BoxFit.cover,
+            ),
           ),
-          ElevatedButton(onPressed: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context) => NewGameScreen()),
-            );
-          }, child: Text("New Game")),
-          ElevatedButton(onPressed: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context) => NewGameScreen()),
-            );
-          }, child: Text("Leaderboard")),
-          ElevatedButton(onPressed: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context) => NewGameScreen()),
-            );
-          }, child: Text("How to Play")),
-          ElevatedButton(onPressed: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context) => NewGameScreen()),
-            );
-          }, child: Text("Settings"))
-          
+
+          // Foreground content (buttons)
+          Center(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                ListTile(
+                  leading: const Icon(Icons.info_outline),
+                  title: const Text('Start Game'),
+                  onTap: () {
+                    Navigator.of(context).pushNamed(GamesScreen.routeName);
+                  },
+                ),
+                const SizedBox(height: 16),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => NewGameScreen(),
+                      ),
+                    );
+                  },
+                  child: const Text("New Game"),
+                ),
+                ElevatedButton(
+                  onPressed: () {},
+                  child: const Text("Leaderboard"),
+                ),
+                ElevatedButton(
+                  onPressed: () {},
+                  child: const Text("How to Play"),
+                ),
+                ElevatedButton(
+                  onPressed: () {},
+                  child: const Text("Settings"),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
