@@ -1,3 +1,4 @@
+import 'package:card_game/Instructions_Screen.dart';
 import 'package:card_game/new_game.dart';
 import 'package:flutter/material.dart';
 
@@ -88,7 +89,14 @@ class MenuScreen extends StatelessWidget {
                   child: const Text("Leaderboard"),
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => InstructionsScreen(),
+                      ),
+                    );
+                  },
                   child: const Text("How to Play"),
                 ),
                 ElevatedButton(
