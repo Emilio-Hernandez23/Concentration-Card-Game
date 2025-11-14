@@ -49,10 +49,12 @@ class MenuScreen extends StatelessWidget {
         children: [
           // Background image
           Positioned.fill(
-            // child: Image.asset(
-            //   'assets/images/Backgrounds/Home_Screen_Background.png',
+            //choose between these 2 backgrounds
+
             child: Image.asset(
-              'assets/images/Backgrounds/Home_Screen_Background2.png',
+              'assets/images/Backgrounds/Home_Screen_Background.png',
+            // child: Image.asset(
+            //   'assets/images/Backgrounds/Home_Screen_Background2.png',
               fit: BoxFit.cover,
             ),
           ),
