@@ -13,7 +13,19 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       title: 'Cards of Destruction',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(useMaterial3: true, colorSchemeSeed: Colors.blue),
+      theme: ThemeData(
+        useMaterial3: true, 
+        colorSchemeSeed: Colors.blue,
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
+            textStyle: const TextStyle(fontSize: 22),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12)
+            )
+          )
+        )
+        ),
       home: MenuScreen(),
       routes: {
         GamesScreen.routeName: (game) => const GamesScreen(),
@@ -45,7 +57,20 @@ class MenuScreen extends StatelessWidget {
           ElevatedButton(onPressed: (){
             Navigator.push(context, MaterialPageRoute(builder: (context) => NewGameScreen()),
             );
-          }, child: Text("New Game"))
+          }, child: Text("New Game")),
+          ElevatedButton(onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context) => NewGameScreen()),
+            );
+          }, child: Text("Leaderboard")),
+          ElevatedButton(onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context) => NewGameScreen()),
+            );
+          }, child: Text("How to Play")),
+          ElevatedButton(onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context) => NewGameScreen()),
+            );
+          }, child: Text("Settings"))
+          
         ],
       ),
     );
