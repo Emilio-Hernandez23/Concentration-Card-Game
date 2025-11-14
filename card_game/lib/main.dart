@@ -1,3 +1,4 @@
+import 'package:card_game/new_game.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,7 +13,19 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       title: 'Cards of Destruction',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(useMaterial3: true, colorSchemeSeed: Colors.blue),
+      theme: ThemeData(
+        useMaterial3: true, 
+        colorSchemeSeed: Colors.blue,
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
+            textStyle: const TextStyle(fontSize: 22),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12)
+            )
+          )
+        )
+        ),
       home: MenuScreen(),
       routes: {
         GamesScreen.routeName: (game) => const GamesScreen(),
@@ -28,15 +41,60 @@ class MenuScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Main Menu')),
-      body: ListView(
+      appBar: AppBar(
+        title: const Text('Main Menu'),
+        centerTitle: true,
+      ),
+      body: Stack(
         children: [
-          ListTile(
-            leading: const Icon(Icons.info_outline),
-            title: const Text('Start Game'),
-            onTap: () {
-              Navigator.of(context).pushNamed(GamesScreen.routeName);
-            },
+          // Background image
+          Positioned.fill(
+            // child: Image.asset(
+            //   'assets/images/Backgrounds/Home_Screen_Background.png',
+            child: Image.asset(
+              'assets/images/Backgrounds/Home_Screen_Background2.png',
+              fit: BoxFit.cover,
+            ),
+          ),
+
+          // Foreground content (buttons)
+          Center(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                ListTile(
+                  leading: const Icon(Icons.info_outline),
+                  title: const Text('Start Game'),
+                  onTap: () {
+                    Navigator.of(context).pushNamed(GamesScreen.routeName);
+                  },
+                ),
+                const SizedBox(height: 16),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => NewGameScreen(),
+                      ),
+                    );
+                  },
+                  child: const Text("New Game"),
+                ),
+                ElevatedButton(
+                  onPressed: () {},
+                  child: const Text("Leaderboard"),
+                ),
+                ElevatedButton(
+                  onPressed: () {},
+                  child: const Text("How to Play"),
+                ),
+                ElevatedButton(
+                  onPressed: () {},
+                  child: const Text("Settings"),
+                ),
+              ],
+            ),
           ),
         ],
       ),
