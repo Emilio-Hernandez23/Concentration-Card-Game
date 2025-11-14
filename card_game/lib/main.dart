@@ -1,3 +1,4 @@
+import 'package:card_game/new_game.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -28,7 +29,10 @@ class MenuScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Main Menu')),
+      appBar: AppBar(
+        title: const Text('Main Menu'),
+        centerTitle: true,
+        ),
       body: ListView(
         children: [
           ListTile(
@@ -38,6 +42,10 @@ class MenuScreen extends StatelessWidget {
               Navigator.of(context).pushNamed(GamesScreen.routeName);
             },
           ),
+          ElevatedButton(onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context) => NewGameScreen()),
+            );
+          }, child: Text("New Game"))
         ],
       ),
     );
