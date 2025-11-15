@@ -17,6 +17,10 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  fonts:
+    - family: DragonHunter
+      fonts:
+        - asset: assets/fonts/DragonHunter.otf
   assets:
     - assets/images/Backgrounds/Home_Screen_Background.png
     - assets/images/Backgrounds/Home_Screen_Background2.png
