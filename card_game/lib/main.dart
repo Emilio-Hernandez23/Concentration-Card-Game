@@ -1,6 +1,7 @@
 import 'package:card_game/Instructions_Screen.dart';
 import 'package:card_game/new_game.dart';
 import 'package:flutter/material.dart';
+//import 'package:flutter/cupertino.dart';
 
 void main() {
   runApp(const MainApp());
@@ -17,6 +18,7 @@ class MainApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true, 
         colorSchemeSeed: Colors.blue,
+        fontFamily: 'DragonHunter',
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
             padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
@@ -25,12 +27,10 @@ class MainApp extends StatelessWidget {
               borderRadius: BorderRadius.circular(12)
             )
           )
-        )
+        ),
+        brightness: Brightness.dark
         ),
       home: MenuScreen(),
-      routes: {
-        GamesScreen.routeName: (game) => const GamesScreen(),
-      },
     );
   }
 }
@@ -51,7 +51,6 @@ class MenuScreen extends StatelessWidget {
           // Background image
           Positioned.fill(
             //choose between these 2 backgrounds
-
             child: Image.asset(
               'assets/images/Backgrounds/Home_Screen_Background.png',
             // child: Image.asset(
@@ -65,15 +64,15 @@ class MenuScreen extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                ListTile(
-                  leading: const Icon(Icons.info_outline),
-                  title: const Text('Start Game'),
-                  onTap: () {
-                    Navigator.of(context).pushNamed(GamesScreen.routeName);
-                  },
-                ),
                 const SizedBox(height: 16),
                 ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    foregroundColor: Colors.white,
+                    textStyle: TextStyle(fontSize: 20, fontFamily: 'DragonHunter'),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12)
+                    ),
+                  ),
                   onPressed: () {
                     Navigator.push(
                       context,
@@ -85,10 +84,24 @@ class MenuScreen extends StatelessWidget {
                   child: const Text("New Game"),
                 ),
                 ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    foregroundColor: Colors.white,
+                    textStyle: TextStyle(fontSize: 20, fontFamily: 'DragonHunter'),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12)
+                    ),
+                  ),
                   onPressed: () {},
                   child: const Text("Leaderboard"),
                 ),
                 ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    foregroundColor: Colors.white,
+                    textStyle: TextStyle(fontSize: 20, fontFamily: 'DragonHunter'),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12)
+                    ),
+                  ),
                   onPressed: () {
                     Navigator.push(
                       context,
@@ -100,6 +113,13 @@ class MenuScreen extends StatelessWidget {
                   child: const Text("How to Play"),
                 ),
                 ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    foregroundColor: Colors.white,
+                    textStyle: TextStyle(fontSize: 20, fontFamily: 'DragonHunter'),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12)
+                    ),
+                  ),
                   onPressed: () {},
                   child: const Text("Settings"),
                 ),
@@ -107,26 +127,6 @@ class MenuScreen extends StatelessWidget {
             ),
           ),
         ],
-      ),
-    );
-  }
-}
-
-// Game Screen
-class GamesScreen extends StatelessWidget {
-  static const routeName = '/details';
-
-  const GamesScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Details')),
-      body: Center(
-        child: FilledButton(
-          onPressed: () => Navigator.of(context).pop(), // go back to menu
-          child: const Text('Back'),
-        ),
       ),
     );
   }

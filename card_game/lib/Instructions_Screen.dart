@@ -1,4 +1,4 @@
-import 'package:card_game/main.dart';
+//import 'package:card_game/main.dart';
 import 'package:flutter/material.dart';
 
 class InstructionsScreen extends StatelessWidget{
