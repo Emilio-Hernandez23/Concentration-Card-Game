@@ -75,7 +75,7 @@ class MenuScreen extends StatelessWidget {
                   alignment: Alignment.center,
                   children: [
                     Text(
-                      "Main Menu",
+                      "Cards of Destruction",
                       style: TextStyle(
                         fontSize: 64,
                         fontWeight: FontWeight.bold,
@@ -87,7 +87,7 @@ class MenuScreen extends StatelessWidget {
                       textAlign: TextAlign.center,
                     ),
                     Text(
-                      "Main Menu",
+                      "Cards of Destruction",
                       style: TextStyle(
                         fontSize: 64,
                         fontWeight: FontWeight.bold,
