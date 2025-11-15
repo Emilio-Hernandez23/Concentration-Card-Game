@@ -1,6 +1,8 @@
 import 'package:card_game/Instructions_Screen.dart';
 import 'package:card_game/new_game.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
+
 
 void main() {
   runApp(const MainApp());
@@ -42,12 +44,13 @@ class MenuScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Main Menu'),
-        centerTitle: true,
-      ),
+      // appBar: AppBar(
+      //   title: const Text('Main Menu'),
+      //   centerTitle: true,
+      // ),
       body: Stack(
         children: [
+          
           // Background image
           Positioned.fill(
             //choose between these 2 backgrounds
@@ -59,12 +62,39 @@ class MenuScreen extends StatelessWidget {
               fit: BoxFit.cover,
             ),
           ),
+          
 
           // Foreground content (buttons)
           Center(
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
+                Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    Text(
+                      "Main Menu",
+                      style: TextStyle(
+                        fontSize: 64,
+                        fontWeight: FontWeight.bold,
+                        foreground: Paint()
+                          ..style = PaintingStyle.stroke
+                          ..strokeWidth = 2.0
+                          ..color = Colors.black,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    Text(
+                      "Main Menu",
+                      style: TextStyle(
+                        fontSize: 64,
+                        fontWeight: FontWeight.bold,
+                        color: const Color.fromARGB(255, 165, 26, 8),
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
                 ListTile(
                   leading: const Icon(Icons.info_outline),
                   title: const Text('Start Game'),
