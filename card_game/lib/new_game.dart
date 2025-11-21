@@ -1,4 +1,5 @@
 import 'package:card_game/main.dart';
+import 'package:card_game/new_game_screen.dart';
 import 'package:flutter/material.dart';
 
 class NewGameScreen extends StatelessWidget {
@@ -10,7 +11,16 @@ class NewGameScreen extends StatelessWidget {
       appBar: AppBar(title: const Text("Matching Mayhem")),
       body: Column(
         children: [
-          ElevatedButton(onPressed: null, child: Text("1 Player")),
+          ElevatedButton(
+  onPressed: () {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const GameBoardScreen()),
+    );
+  },
+  child: Text("1 Player"),
+),
+
           ElevatedButton(onPressed: null, child: Text("2 Players")),
           ElevatedButton(onPressed: (){
             Navigator.push(context, MaterialPageRoute(builder: (context) => MenuScreen()),
