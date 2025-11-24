@@ -92,6 +92,10 @@ class _GameBoardScreenState extends State<GameBoardScreen> {
     });
   }
 
+  int get _remainingPairs {
+    return _deck.cards.where((card) => !card.isMatched).length ~/ 2;
+  }
+
   @override
   Widget build(BuildContext context) {
     // For 54 cards, 6 columns gives 9 rows (6 x 9 = 54)
@@ -105,14 +109,35 @@ class _GameBoardScreenState extends State<GameBoardScreen> {
             icon: const Icon(Icons.refresh),
             onPressed: _newGame,
           ),
+
         ],
       ),
       body: Column(
         children: [
           const SizedBox(height: 8),
-          ElevatedButton(
-            onPressed: _newGame,
-            child: const Text('New Game'),
+          // ElevatedButton(
+          //   onPressed: _newGame,
+          //   child: const Text('New Game'),
+          // ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12.0),
+            child: Row(
+              children: [
+                Expanded(child: Center(
+                  child: Text('Matches Remaining: $_remainingPairs',
+                  style: const TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.w600,
+                  
+                  ),
+                  ),
+                )
+                ),
+                ElevatedButton(onPressed: _newGame, child: const Text('New Game', style: const TextStyle( fontSize: 20, fontWeight: FontWeight.w600, fontFamily: 'DragonHunter', color: Colors.white),)),
+              
+              ]
+            ),
+            
           ),
           const SizedBox(height: 8),
           Expanded(
@@ -142,7 +167,7 @@ class _GameBoardScreenState extends State<GameBoardScreen> {
     return GestureDetector(
       onTap: () => _onCardTap(index),
       child: AnimatedSwitcher(
-        duration: const Duration(milliseconds: 250),
+        duration: const Duration(milliseconds: 450),
         transitionBuilder: (child, animation) {
           // simple fade for now; you can change to rotation if you want fancy flip
           return FadeTransition(opacity: animation, child: child);
