@@ -9,23 +9,51 @@ class NewGameScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text("Matching Mayhem")),
-      body: Column(
+      body: Stack(
         children: [
-          ElevatedButton(
-  onPressed: () {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const GameBoardScreen()),
-    );
-  },
-  child: Text("1 Player"),
-),
-
-          ElevatedButton(onPressed: null, child: Text("2 Players")),
-          ElevatedButton(onPressed: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context) => MenuScreen()),
-            );
-          }, child: Text("Back to Main Menu"))
+          Center(
+            child: SizedBox(
+              width: 2000,
+              height: 800,
+              child: Image.asset(
+                'assets/images/Backgrounds/Home_Screen_Background.png',
+                //check if yall like it
+                //'images/Backgrounds/Menu2.png',
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const GameBoardScreen()),
+                );
+              },
+              child: const Text("1 Player"),
+            ),
+            const SizedBox(height: 16),
+            ElevatedButton(
+              onPressed: null,
+              child: const Text("2 Players"),
+            ),
+            const SizedBox(height: 16),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const MenuScreen()),
+                );
+              },
+              child: const Text("Back to Main Menu"),
+            ),
+          ],
+        ),
+      ),
         ],
       ),
     );
