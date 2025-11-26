@@ -186,56 +186,57 @@ class _GameBoardScreenState extends State<GameBoardScreen2> {
           //   child: const Text('New Game'),
           // ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12.0),
-            child: Row(
-              children: [
-                Expanded(child: Column(
-                  
-                  children:[ 
-                    Text('Matches Remaining: $_remainingPairs',
-                  style: const TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.w600,
-                  
-                  ),
-                  ),
-                  Text('Current Turn: Player $_currentPlayer',
-                      style: const TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ]
-                  
-                )
-                ),
-                //ElevatedButton(onPressed: _newGame, child: const Text('New Game', style: const TextStyle( fontSize: 20, fontWeight: FontWeight.w600, fontFamily: 'DragonHunter', color: Colors.white),)),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Text('Player 1 Score: $_player1Score',
-                      style: const TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600,
-                        fontFamily: 'DragonHunter',
-                        color: Colors.white
-                      ),
-                    ),
-                    Text('Player 2 Score: $_player2Score',
-                      style: const TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600,
-                        fontFamily: 'DragonHunter',
-                        color: Colors.white
-                      ),
-                    ),
-                    
-                  ],
-                ) 
-              ]
+  padding: const EdgeInsets.symmetric(horizontal: 12.0),
+  child: Column(
+    children: [
+      // Matches Remaining + Turn
+      Text(
+        'Matches Remaining: $_remainingPairs',
+        style: const TextStyle(
+          fontSize: 30,
+          fontWeight: FontWeight.w600,
+        ),
+      ),
+      Text(
+        'Current Turn: Player $_currentPlayer',
+        style: const TextStyle(
+          fontSize: 20,
+          fontWeight: FontWeight.w600,
+        ),
+      ),
+
+      const SizedBox(height: 10),
+
+      // ⬇️ NEW SCORE ROW WITH LEFT/RIGHT ALIGNMENT
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          // Player 1 score - LEFT SIDE
+          Text(
+            'Player 1 :  $_player1Score',
+            style: const TextStyle(
+              fontSize: 35,
+              fontWeight: FontWeight.w600,
+              fontFamily: 'DragonHunter',
+              color: Colors.white,
             ),
-            
           ),
+
+          // Player 2 score - RIGHT SIDE
+          Text(
+            'Player 2 :  $_player2Score',
+            style: const TextStyle(
+              fontSize: 35,
+              fontWeight: FontWeight.w600,
+              fontFamily: 'DragonHunter',
+              color: Colors.white,
+            ),
+          ),
+        ],
+      ),
+    ],
+  ),
+),
           const SizedBox(height: 8),
           Expanded(
             child: GridView.builder(
