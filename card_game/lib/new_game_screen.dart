@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'card_deck.dart';
 import 'card_images.dart';
+import 'game_settings.dart';
 
 
 class GameBoardScreen extends StatefulWidget {
@@ -12,6 +13,7 @@ class GameBoardScreen extends StatefulWidget {
 
 class _GameBoardScreenState extends State<GameBoardScreen> {
   late CardDeck _deck;
+  late GameSettings _settings;
 
   int? _firstFlippedIndex; // index of the first flipped card in current attempt
   bool _canTap = true; // to prevent taps while waiting to flip back
@@ -30,6 +32,46 @@ class _GameBoardScreenState extends State<GameBoardScreen> {
       backImagePath: 'assets/images/Backgrounds/Home_Screen_Background.png',
       frontImagePaths: cardImagePaths,
     );
+
+    _settings = GameSettings();
+  }
+
+    @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final settings = SettingsScope.of(context);
+    if (!mounted) return;
+    if (!_settings.hasListeners) {
+      // remove old listener if present
+      try {
+       _settings.removeListener(_onSettingsChanged);
+      } catch (_) {}
+      _settings = settings;
+      _settings.addListener(_onSettingsChanged);
+
+      // apply current setting to all cards immediately
+      for (final c in _deck.cards) {
+        c.backImagePath = _settings.cardBackPath;
+      }
+      setState(() {});
+    }
+  }
+
+  @override
+  void dispose() {
+    try {
+      _settings.removeListener(_onSettingsChanged);
+    } catch (_) {}
+    super.dispose();
+  }
+
+  void _onSettingsChanged() {
+    // when card back changes, update each card's backImagePath and refresh UI
+    setState(() {
+      for (final c in _deck.cards) {
+        c.backImagePath = _settings.cardBackPath;
+      }
+    });
   }
 
   void _onCardTap(int index) {

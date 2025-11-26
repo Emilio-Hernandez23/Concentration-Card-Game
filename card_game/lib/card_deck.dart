@@ -9,7 +9,7 @@ class MemoryCard {
   final String frontImagePath;
 
   //path to card cover image
-  final String backImagePath;
+  String backImagePath;
 
   //whether card is face up
   bool isFaceUp;

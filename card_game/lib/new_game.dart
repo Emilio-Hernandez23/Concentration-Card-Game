@@ -28,6 +28,13 @@ class NewGameScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                foregroundColor: Colors.white,
+                textStyle: TextStyle(fontSize: 20, fontFamily: 'DragonHunter'),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12)
+                ),
+              ),
               onPressed: () {
                 Navigator.push(
                   context,
@@ -38,11 +45,25 @@ class NewGameScreen extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                foregroundColor: Colors.white,
+                textStyle: TextStyle(fontSize: 20, fontFamily: 'DragonHunter'),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12)
+                ),
+              ),
               onPressed: null,
               child: const Text("2 Players"),
             ),
             const SizedBox(height: 16),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                foregroundColor: Colors.white,
+                textStyle: TextStyle(fontSize: 20, fontFamily: 'DragonHunter'),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12)
+                ),
+              ),
               onPressed: () {
                 Navigator.push(
                   context,

@@ -1,14 +1,19 @@
 import 'package:card_game/Instructions_Screen.dart';
+import 'package:card_game/game_settings.dart';
 import 'package:card_game/new_game.dart';
+import 'package:card_game/settings_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
+//import 'package:flutter/painting.dart';
 
 
 //import 'package:flutter/cupertino.dart';
 
 
 void main() {
-  runApp(const MainApp());
+  //intializes game settings
+  final settings = GameSettings();
+  runApp(SettingsScope(notifier: settings, child: const MainApp()));
+  //runApp(const MainApp());
 }
 
 class MainApp extends StatelessWidget {
@@ -154,7 +159,14 @@ class MenuScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(12)
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => SettingsScreen(),
+                      ),
+                    );
+                  },
                   child: const Text("Settings"),
                 ),
               ],

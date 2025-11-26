@@ -49,6 +49,13 @@ class InstructionsScreen extends StatelessWidget{
                     Align(
                       alignment: Alignment.centerRight,
                       child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          foregroundColor: Colors.white,
+                          textStyle: TextStyle(fontSize: 20, fontFamily: 'DragonHunter'),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12)
+                          ),
+                        ),
                         onPressed: () => Navigator.pop(context),
                         child: Text('Back'),
                       ),
