@@ -1,4 +1,5 @@
 import 'package:card_game/main.dart';
+import 'package:card_game/new_2player_game_screen.dart';
 import 'package:card_game/new_game_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -52,7 +53,12 @@ class NewGameScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12)
                 ),
               ),
-              onPressed: null,
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const GameBoardScreen2()),
+                );
+              },
               child: const Text("2 Players"),
             ),
             const SizedBox(height: 16),
