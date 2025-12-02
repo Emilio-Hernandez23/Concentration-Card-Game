@@ -122,17 +122,17 @@ class MenuScreen extends StatelessWidget {
                   },
                   child: const Text("New Game"),
                 ),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    foregroundColor: Colors.white,
-                    textStyle: TextStyle(fontSize: 20, fontFamily: 'DragonHunter'),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12)
-                    ),
-                  ),
-                  onPressed: () {},
-                  child: const Text("Leaderboard"),
-                ),
+                // ElevatedButton(
+                //   style: ElevatedButton.styleFrom(
+                //     foregroundColor: Colors.white,
+                //     textStyle: TextStyle(fontSize: 20, fontFamily: 'DragonHunter'),
+                //     shape: RoundedRectangleBorder(
+                //       borderRadius: BorderRadius.circular(12)
+                //     ),
+                //   ),
+                //   onPressed: () {},
+                //   child: const Text("Leaderboard"),
+                // ),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     foregroundColor: Colors.white,
