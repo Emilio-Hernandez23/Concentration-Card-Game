@@ -30,7 +30,7 @@ class InstructionsScreen extends StatelessWidget{
                       '• Tap two cards to flip them.\n'
                       '• If they match they stay face up.\n'
                       '• If they do not match they flip back.\n'
-                      '• Every matched pair will earn +10 points.\n'
+                      '• Every matched pair will earn +100 points.\n'
                       '• Try to match all pairs with as few moves as possible.\n'
                       '• The player with the most points at the end of the game will be declared the winner!\n',
                       style: Theme.of(context).textTheme.bodyMedium,

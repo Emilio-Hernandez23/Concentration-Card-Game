@@ -50,7 +50,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
             ElevatedButton(
               onPressed: () => Navigator.pop(context),
-              child: const Text("Back"),
+              child: const Text("Back", style: TextStyle(fontFamily: 'DragonHunter', color: Colors.white),),
             ),
           ],
         ),
