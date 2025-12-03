@@ -9,7 +9,7 @@ class NewGameScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Matching Mayhem")),
+      appBar: AppBar(title: const Text("Cards of Descrutction")),
       body: Stack(
         children: [
           Center(

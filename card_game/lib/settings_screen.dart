@@ -9,9 +9,11 @@ class SettingsScreen extends StatefulWidget {
 
 class _SettingsScreenState extends State<SettingsScreen> {
   final List<String> _cardBackPaths = [
+    'assets/images/Backgrounds/Backside1.png',
     'assets/images/Backgrounds/Home_Screen_Background.png',
     'assets/images/Backgrounds/dnd-abandoned-house.jpg',
     'assets/images/Backgrounds/dnd-workspace.jpg',
+    
   ];
   @override
   Widget build(BuildContext context) {

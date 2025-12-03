@@ -169,7 +169,7 @@ class _GameBoardScreenState extends State<GameBoardScreen2> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Matching Mayhem'),
+        title: const Text('Cards of Descruction - 2 Player'),
         actions: [
           IconButton(
             icon: const Icon(Icons.refresh),

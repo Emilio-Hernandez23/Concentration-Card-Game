@@ -29,7 +29,8 @@ class _GameBoardScreenState extends State<GameBoardScreen> {
 
     // Otherwise, manually provide the 27 front image paths:
     _deck = CardDeck(
-      backImagePath: 'assets/images/Backgrounds/Home_Screen_Background.png',
+      backImagePath: 'assets/images/Backgrounds/Backside1.png',
+      // backImagePath: 'assets/images/Backgrounds/Home_Screen_Background.png',
       frontImagePaths: cardImagePaths,
     );
 
@@ -145,7 +146,7 @@ class _GameBoardScreenState extends State<GameBoardScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Matching Mayhem'),
+        title: const Text('Cards of Descruction - 1 Player'),
         actions: [
           IconButton(
             icon: const Icon(Icons.refresh),

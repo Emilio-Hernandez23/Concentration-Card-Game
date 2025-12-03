@@ -2,7 +2,7 @@ import 'package:flutter/widgets.dart';
 
 //this class allows to notify other screens when a user changes the game settings (which is done in settings_screen.dart)
 class GameSettings extends ChangeNotifier {
-  String _cardBackPath = 'assets/images/Backgrounds/Home_Screen_Background.png';
+  String _cardBackPath = 'assets/images/Backgrounds/Backside1.png';
   String get cardBackPath => _cardBackPath;
 
   set cardBackPath(String value) {
